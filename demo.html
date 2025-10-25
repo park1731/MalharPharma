@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Carousel Demo - Mahlar Medical</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 font-['Inter']">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Service Carousel Demo</h1>
+        
+        <!-- Service Carousel -->
+        <div class="bg-green-600 py-4 rounded-lg overflow-hidden mb-8">
+            <div class="services-carousel-container">
+                <!-- General Medicine -->
+                <div class="services-carousel" onclick="openAppointmentPopupWithService('General Physician')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-1 shadow-md cursor-pointer hover:bg-green-50 transition-all duration-300">
+                        <i class="fas fa-user-md text-lg text-green-600"></i>
+                    </div>
+                    <p class="text-white text-xs font-medium">Medicine</p>
+                </div>
+                
+                <!-- Pediatrics -->
+                <div class="services-carousel" onclick="openAppointmentPopupWithService('Family Physician')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-1 shadow-md cursor-pointer hover:bg-green-50 transition-all duration-300">
+                        <i class="fas fa-baby text-lg text-green-600"></i>
+                    </div>
+                    <p class="text-white text-xs font-medium">Pediatrics</p>
+                </div>
+                
+                <!-- Laboratory -->
+                <div class="services-carousel" onclick="openAppointmentPopupWithService('Laboratory')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-1 shadow-md cursor-pointer hover:bg-green-50 transition-all duration-300">
+                        <i class="fas fa-flask text-lg text-green-600"></i>
+                    </div>
+                    <p class="text-white text-xs font-medium">Lab</p>
+                </div>
+                
+                <!-- Pharmacy -->
+                <div class="services-carousel" onclick="openAppointmentPopupWithService('Pharmacy')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-1 shadow-md cursor-pointer hover:bg-green-50 transition-all duration-300">
+                        <i class="fas fa-pills text-lg text-green-600"></i>
+                    </div>
+                    <p class="text-white text-xs font-medium">Pharmacy</p>
+                </div>
+                
+                <!-- Emergency -->
+                <div class="services-carousel" onclick="openAppointmentPopupWithService('Emergency Care')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-1 shadow-md cursor-pointer hover:bg-green-50 transition-all duration-300">
+                        <i class="fas fa-ambulance text-lg text-green-600"></i>
+                    </div>
+                    <p class="text-white text-xs font-medium">Emergency</p>
+                </div>
+                
+                <!-- Vaccination -->
+                <div class="services-carousel" onclick="openAppointmentPopupWithService('Vaccination')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-1 shadow-md cursor-pointer hover:bg-green-50 transition-all duration-300">
+                        <i class="fas fa-syringe text-lg text-green-600"></i>
+                    </div>
+                    <p class="text-white text-xs font-medium">Vaccine</p>
+                </div>
+            </div>
+        </div>
+        
+        <p class="text-center text-gray-600 mb-8">Click on any service circle above to test the appointment popup functionality</p>
+        
+        <!-- Test Button -->
+        <div class="text-center">
+            <button onclick="openAppointmentPopupWithService('General Physician')" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
+                Test Appointment Popup
+            </button>
+        </div>
+    </div>
+
+    <!-- Appointment Popup Form -->
+    <div id="appointment-popup" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                    <i class="fas fa-calendar-check text-green-600 mr-3"></i>
+                    Book Appointment
+                </h3>
+                <button onclick="closeAppointmentPopup()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Form -->
+            <form id="quick-appointment-form" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Patient Name *</label>
+                    <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Service *</label>
+                    <select id="popup-service" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">Select Service</option>
+                        <option value="General Physician">General Physician</option>
+                        <option value="Family Physician">Family Physician</option>
+                        <option value="Laboratory">Laboratory</option>
+                        <option value="Pharmacy">Pharmacy</option>
+                        <option value="Emergency Care">Emergency Care</option>
+                        <option value="Vaccination">Vaccination</option>
+                        <option value="Health Packages">Health Packages</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Date *</label>
+                    <input type="date" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                    <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                </div>
+                
+                <button type="submit" class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                    Book Appointment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
