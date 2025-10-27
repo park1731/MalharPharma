@@ -1,6 +1,6 @@
 {
-    "name": "Mahlar Pharma & Clinic",
-    "short_name": "Mahlar Medical",
+    "name": "Malhar Pharma & Clinic",
+    "short_name": "Malhar Medical",
     "description": "Comprehensive healthcare services in Bengaluru. General medicine, pediatrics, laboratory, pharmacy & home delivery.",
     "start_url": "/",
     "display": "standalone",
@@ -116,7 +116,7 @@
     "related_applications": [
         {
             "platform": "webapp",
-            "url": "https://mahlarmedical.com"
+            "url": "https://malharcare.in"
         }
     ],
     "prefer_related_applications": false,

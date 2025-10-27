@@ -1,15 +1,8 @@
-# Mahlar Medical - Robots.txt Configuration
+# Malhar Medical - Robots.txt Configuration
 # Domain: malharcare.in
 
 User-agent: *
 Allow: /
-
-# Allow crawling of important pages
-Allow: /index.html
-Allow: /services
-Allow: /gallery
-Allow: /contact
-Allow: /about
 
 # Allow access to assets
 Allow: /images/
@@ -21,7 +14,6 @@ Allow: /sw.js
 # Disallow access to sensitive files
 Disallow: /.htaccess
 Disallow: /.htpasswd
-Disallow: /config.js
 Disallow: /package.json
 Disallow: /README.md
 Disallow: /DEPLOYMENT.md

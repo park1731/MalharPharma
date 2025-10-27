@@ -240,12 +240,12 @@ function initializePreloader() {
     
     let progress = 0;
     const targetProgress = 100;
-    const increment = 3;
+    const increment = 10;
     
     // Add loading class for enhanced animations
     preloader.classList.add('loading');
     
-    // Progress counter animation - complete in exactly 3 seconds
+    // Progress counter animation - complete in 1 second
     const progressInterval = setInterval(() => {
         progress += increment;
         
@@ -270,16 +270,16 @@ function initializePreloader() {
                         console.log('Hiding preloader and showing main content...');
                         preloader.style.display = 'none';
                         showMainContent();
-                    }, 800);
-                }, 200);
+                    }, 300);
+                }, 100);
             }, 100);
         }
         
         // Update counter
         loadingCounter.textContent = Math.min(progress, targetProgress);
-    }, 90);
+    }, 30);
     
-    // Fallback: Force completion after exactly 3 seconds
+    // Fallback: Force completion after 1.5 seconds max
     setTimeout(() => {
         console.log('Fallback timer triggered, forcing completion...');
         clearInterval(progressInterval);
@@ -295,10 +295,10 @@ function initializePreloader() {
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     showMainContent();
-                }, 800);
-            }, 200);
+                }, 300);
+            }, 100);
         }, 100);
-    }, 3000);
+    }, 1500);
 }
 
 function showMainContent() {
@@ -1163,7 +1163,7 @@ function initializeConfiguration() {
         }
         
         // Update page title with fallback
-        const title = CONFIG.seo.title || 'Mahlar Pharma & Clinic - Best Medical Clinic & Pharmacy in Bengaluru, Karnataka';
+        const title = CONFIG.seo.title || 'Best Clinic Near Me | Pharmacy Shop | Lab Tests | Blood Tests - Bengaluru';
         document.title = title;
         console.log('📝 Page title updated to:', title);
         
@@ -1183,7 +1183,7 @@ function initializeConfiguration() {
         console.warn('❌ CONFIG not found or incomplete. Using fallback values...');
         
         // Set fallback title
-        document.title = 'Mahlar Pharma & Clinic - Best Medical Clinic & Pharmacy in Bengaluru, Karnataka';
+        document.title = 'Best Clinic Near Me | Pharmacy Shop | Lab Tests | Blood Tests - Bengaluru';
         console.log('📝 Using fallback title');
         
         // Try to update again after a short delay
@@ -1688,4 +1688,31 @@ function initializeVideo() {
             console.log('Video loaded successfully');
         });
     });
+}
+
+// FAQ Toggle Function
+function toggleFAQ(button) {
+    const faqItem = button.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = button.querySelector('i');
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+        if (otherAnswer !== answer && !otherAnswer.classList.contains('hidden')) {
+            otherAnswer.classList.add('hidden');
+            const otherIcon = otherAnswer.parentElement.querySelector('.faq-question i');
+            if (otherIcon) {
+                otherIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+    
+    // Toggle current FAQ
+    if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        answer.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+    }
 }

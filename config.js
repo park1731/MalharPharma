@@ -144,25 +144,27 @@ const CONFIG = {
     seo: {
         // Meta Tags
         meta: {
-            title: "Mahlar Pharma & Clinic - Best Medical Clinic & Pharmacy in Bengaluru, Karnataka",
-            description: "Mahlar Pharma & Clinic offers comprehensive healthcare services in Bengaluru. General medicine, pediatrics, laboratory, pharmacy, home delivery & emergency care. Book appointment today!",
-            keywords: "medical clinic bengaluru, pharmacy bengaluru, general physician, pediatrics, laboratory services, home delivery medicine, emergency care, health packages, vaccination, ECG services, physiotherapy, gynecology, family physician, home visit doctor, medical store bengaluru, healthcare bengaluru, doctor near me, medicine delivery, clinic near me",
-            author: "Mahlar Pharma & Clinic",
+            title: "Best Clinic Near Me | Pharmacy Shop | Lab Tests | Blood Tests - Bengaluru",
+            description: "Looking for clinic near me? Malhar Pharma & Clinic - Best pharmacy shop near me in Bengaluru. Medicines, lab tests, blood tests, full body checkup, ECG. Open 8AM-10:30PM. Free home delivery!",
+            keywords: "clinic near me, hospital near me, pharmacy near me, best clinic near me, best pharmacy shop near me, medicines near me, pharmacy shop near me, medical store near me, doctor near me, lab tests near me, blood tests near me, full body checkup near me, health checkup near me, pathology lab near me, diagnostic center near me, medicine delivery near me, medicine shop near me, chemist near me, medical clinic bengaluru, pharmacy bengaluru, laboratory services bengaluru, ECG near me, general physician near me, pediatrician near me, family doctor near me, home visit doctor, emergency clinic near me, 24 hour pharmacy near me, cheap medicines near me, medicine offers near me, discount pharmacy near me",
+            author: "Malhar Pharma & Clinic",
             robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
             viewport: "width=device-width, initial-scale=1.0",
             charset: "UTF-8",
             language: "en",
-            canonical: "https://mahlarmedical.com",
+            canonical: "https://malharcare.in",
             ogType: "website",
-            ogSiteName: "Mahlar Pharma & Clinic",
-            ogTitle: "Mahlar Pharma & Clinic - Best Medical Clinic & Pharmacy in Bengaluru",
-            ogDescription: "Comprehensive healthcare services in Bengaluru. General medicine, pediatrics, laboratory, pharmacy & home delivery. Book appointment today!",
-            ogImage: "https://mahlarmedical.com/images/og-image.jpg",
-            ogUrl: "https://mahlarmedical.com",
+            ogSiteName: "Malhar Pharma & Clinic",
+            ogTitle: "Best Clinic Near Me | Pharmacy Shop | Lab Tests - Bengaluru",
+            ogDescription: "Looking for clinic near me? Best pharmacy shop, lab tests, blood tests, full body checkup in Bengaluru. Free medicine delivery. Open 8AM-10:30PM!",
+            ogImage: "https://malharcare.in/images/medical-gallery/full_front_view.jpeg",
+            ogUrl: "https://malharcare.in",
             twitterCard: "summary_large_image",
-            twitterSite: "@mahlarmedical",
-            twitterCreator: "@mahlarmedical"
+            twitterSite: "@malharpharma",
+            twitterCreator: "@malharpharma"
         },
+        title: "Best Clinic Near Me | Pharmacy Shop | Lab Tests | Blood Tests - Bengaluru",
+        description: "Looking for clinic near me? Malhar Pharma & Clinic - Best pharmacy shop near me in Bengaluru. Medicines, lab tests, blood tests, full body checkup, ECG. Open 8AM-10:30PM. Free home delivery!",
         
         // Schema.org Structured Data
         structuredData: {
@@ -172,9 +174,9 @@ const CONFIG = {
                 "name": "Malhar Pharma & Clinic",
                 "alternateName": "Malhar",
                 "description": "Comprehensive healthcare services including general medicine, pediatrics, laboratory services, pharmacy, and home delivery in Bengaluru, Karnataka.",
-                "url": "https://mahlarmedical.com",
-                "logo": "https://mahlarmedical.com/images/logo/logo.png",
-                "image": "https://mahlarmedical.com/images/logo/logo.png",
+                "url": "https://malharcare.in",
+                "logo": "https://malharcare.in/images/logo/logo.png",
+                "image": "https://malharcare.in/images/logo/logo.png",
                 "telephone": "+919423178631",
                 "email": "malharpharma887@gmail.com",
                 "address": {
@@ -249,7 +251,7 @@ const CONFIG = {
                 "@type": "MedicalClinic",
                 "name": "Malhar Pharma & Clinic",
                 "description": "Professional medical clinic providing comprehensive healthcare services in Bengaluru",
-                "url": "https://mahlarmedical.com",
+                "url": "https://malharcare.in",
                 "telephone": "+919423178631",
                 "address": {
                     "@type": "PostalAddress",
@@ -295,7 +297,7 @@ const CONFIG = {
                 "@type": "Pharmacy",
                 "name": "Malhar Pharma & Clinic",
                 "description": "Professional pharmacy services with expert guidance and medication management",
-                "url": "https://mahlarmedical.com",
+                "url": "https://malharcare.in",
                 "telephone": "+919423178631",
                 "address": {
                     "@type": "PostalAddress",

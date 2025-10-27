@@ -7,68 +7,15 @@
     <!-- Homepage -->
     <url>
         <loc>https://malharcare.in/</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2025-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- Main Sections (Single Page Application) -->
-    <url>
-        <loc>https://malharcare.in/#home</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://malharcare.in/#services</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://malharcare.in/#gallery</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://malharcare.in/#stories</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://malharcare.in/#contact</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
     <!-- Demo Page -->
-    <url>
-        <loc>https://malharcare.in/demo.html</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
+    
 
     <!-- Important Files -->
-    <url>
-        <loc>https://malharcare.in/manifest.json</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://malharcare.in/sw.js</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.2</priority>
-    </url>
+    
 
 </urlset>
