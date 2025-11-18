@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1500);
 });
 
-// Authentic Medical Store & Clinic Preloader
+// Authentic Medical Store & Clinic Preloader - Ultra Fast
 function initializePreloader() {
     const preloader = document.getElementById('preloader');
     const loadingCounter = document.getElementById('loading-counter');
@@ -240,12 +240,12 @@ function initializePreloader() {
     
     let progress = 0;
     const targetProgress = 100;
-    const increment = 10;
+    const increment = 33; // Large increment for very fast progress
     
     // Add loading class for enhanced animations
     preloader.classList.add('loading');
     
-    // Progress counter animation - complete in 1 second
+    // Progress counter animation - complete in ~0.15 seconds (ultra fast)
     const progressInterval = setInterval(() => {
         progress += increment;
         
@@ -258,7 +258,7 @@ function initializePreloader() {
             // Update final counter
             loadingCounter.textContent = targetProgress;
             
-            // Start fade out process
+            // Start fade out process - minimal delays
             setTimeout(() => {
                 preloader.classList.remove('loading');
                 preloader.classList.add('success');
@@ -270,16 +270,16 @@ function initializePreloader() {
                         console.log('Hiding preloader and showing main content...');
                         preloader.style.display = 'none';
                         showMainContent();
-                    }, 300);
-                }, 100);
-            }, 100);
+                    }, 100); // Minimal delay
+                }, 20); // Minimal delay
+            }, 20); // Minimal delay
         }
         
         // Update counter
         loadingCounter.textContent = Math.min(progress, targetProgress);
-    }, 30);
+    }, 10); // Very fast interval
     
-    // Fallback: Force completion after 1.5 seconds max
+    // Fallback: Force completion after 0.4 seconds max (ultra fast)
     setTimeout(() => {
         console.log('Fallback timer triggered, forcing completion...');
         clearInterval(progressInterval);
@@ -295,10 +295,10 @@ function initializePreloader() {
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     showMainContent();
-                }, 300);
-            }, 100);
-        }, 100);
-    }, 1500);
+                }, 100); // Minimal delay
+            }, 20); // Minimal delay
+        }, 20); // Minimal delay
+    }, 400); // Ultra fast fallback
 }
 
 function showMainContent() {
@@ -334,6 +334,11 @@ function showMainContent() {
             servicesCarousel.style.animation = 'slideInLeft 1s ease-out forwards';
         }, 800);
     }
+    
+    // Check URL for appointment booking link after preloader finishes
+    setTimeout(() => {
+        checkUrlForAppointment();
+    }, 800); // Wait for content to be visible
     
     // Final mobile scroll fix after animations
     setTimeout(fixMobileScroll, 1500);
@@ -1505,6 +1510,63 @@ function openAppointmentPopup() {
     }
 }
 
+// Generate shareable appointment booking link
+function getAppointmentShareLink(serviceName = null) {
+    const baseUrl = window.location.origin + window.location.pathname;
+    const params = new URLSearchParams();
+    params.set('book-appointment', '1');
+    if (serviceName) {
+        params.set('service', serviceName);
+    }
+    return `${baseUrl}?${params.toString()}`;
+}
+
+// Copy appointment link to clipboard
+function copyAppointmentLink(serviceName = null) {
+    // If no service name provided, try to get it from the form
+    if (!serviceName) {
+        const serviceSelect = document.getElementById('popup-service');
+        if (serviceSelect && serviceSelect.value) {
+            serviceName = serviceSelect.value;
+        }
+    }
+    
+    const link = getAppointmentShareLink(serviceName);
+    
+    // Try to copy to clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link).then(() => {
+            console.log('Appointment link copied to clipboard:', link);
+            // Optional: Show a brief success message
+            alert('Appointment booking link copied to clipboard!\n\n' + link);
+        }).catch(err => {
+            console.error('Failed to copy link:', err);
+            // Fallback: Show the link in a prompt
+            prompt('Copy this appointment booking link:', link);
+        });
+    } else {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = link;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            alert('Appointment booking link copied to clipboard!\n\n' + link);
+        } catch (err) {
+            prompt('Copy this appointment booking link:', link);
+        }
+        document.body.removeChild(textArea);
+    }
+    
+    // Add haptic feedback for mobile
+    if ('vibrate' in navigator) {
+        navigator.vibrate(50);
+    }
+}
+
 function openAppointmentPopupWithService(serviceName) {
     const popup = document.getElementById('appointment-popup');
     const serviceSelect = document.getElementById('popup-service');
@@ -1537,6 +1599,45 @@ function openAppointmentPopupWithService(serviceName) {
     }
     
     // Service selection feedback removed to eliminate additional popup
+}
+
+// Check URL parameters and auto-open appointment form
+function checkUrlForAppointment() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookAppointment = urlParams.get('book-appointment');
+    const serviceParam = urlParams.get('service');
+    
+    console.log('Checking URL for appointment:', { bookAppointment, serviceParam });
+    
+    if (bookAppointment === '1' || bookAppointment === 'true') {
+        console.log('Appointment parameter found, opening form...');
+        
+        // Wait a bit to ensure DOM is ready
+        setTimeout(() => {
+            const popup = document.getElementById('appointment-popup');
+            if (!popup) {
+                console.error('Appointment popup not found, retrying...');
+                setTimeout(checkUrlForAppointment, 500);
+                return;
+            }
+            
+            console.log('Opening appointment popup...');
+            if (serviceParam) {
+                openAppointmentPopupWithService(decodeURIComponent(serviceParam));
+            } else {
+                openAppointmentPopup();
+            }
+            
+            // Clean up URL (remove parameters) without reloading
+            setTimeout(() => {
+                if (window.history && window.history.replaceState) {
+                    const cleanUrl = window.location.pathname;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                    console.log('URL cleaned up');
+                }
+            }, 1000);
+        }, 300); // Small delay to ensure page is ready
+    }
 }
 
 function closeAppointmentPopup() {

@@ -2149,9 +2149,9 @@ select.form-input:focus {
     animation: slideInLeft 1s ease-out forwards;
 }
 
-/* Preloader Fade Out Animation */
+/* Preloader Fade Out Animation - Ultra Fast */
 #preloader.fade-out {
-    animation: fadeOut 0.8s ease-out forwards;
+    animation: fadeOut 0.15s ease-out forwards;
 }
 
 @keyframes fadeOut {
