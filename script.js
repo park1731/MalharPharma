@@ -226,79 +226,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1500);
 });
 
-// Authentic Medical Store & Clinic Preloader - Ultra Fast
+// Preloader Disabled - Content shows immediately
 function initializePreloader() {
     const preloader = document.getElementById('preloader');
-    const loadingCounter = document.getElementById('loading-counter');
     
-    if (!preloader || !loadingCounter) {
-        console.log('Preloader elements not found, skipping...');
-        return;
+    // Immediately hide preloader and show main content
+    if (preloader) {
+        preloader.style.display = 'none';
     }
     
-    console.log('Preloader initialized, starting countdown...');
-    
-    let progress = 0;
-    const targetProgress = 100;
-    const increment = 33; // Large increment for very fast progress
-    
-    // Add loading class for enhanced animations
-    preloader.classList.add('loading');
-    
-    // Progress counter animation - complete in ~0.15 seconds (ultra fast)
-    const progressInterval = setInterval(() => {
-        progress += increment;
-        
-        if (progress >= targetProgress) {
-            progress = targetProgress;
-            clearInterval(progressInterval);
-            
-            console.log('Progress complete, starting fade out...');
-            
-            // Update final counter
-            loadingCounter.textContent = targetProgress;
-            
-            // Start fade out process - minimal delays
-            setTimeout(() => {
-                preloader.classList.remove('loading');
-                preloader.classList.add('success');
-                
-                setTimeout(() => {
-                    preloader.classList.add('fade-out');
-                    
-                    setTimeout(() => {
-                        console.log('Hiding preloader and showing main content...');
-                        preloader.style.display = 'none';
-                        showMainContent();
-                    }, 100); // Minimal delay
-                }, 20); // Minimal delay
-            }, 20); // Minimal delay
-        }
-        
-        // Update counter
-        loadingCounter.textContent = Math.min(progress, targetProgress);
-    }, 10); // Very fast interval
-    
-    // Fallback: Force completion after 0.4 seconds max (ultra fast)
-    setTimeout(() => {
-        console.log('Fallback timer triggered, forcing completion...');
-        clearInterval(progressInterval);
-        loadingCounter.textContent = targetProgress;
-        
-        setTimeout(() => {
-            preloader.classList.remove('loading');
-            preloader.classList.add('success');
-            
-            setTimeout(() => {
-                preloader.classList.add('fade-out');
-                
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                    showMainContent();
-                }, 100); // Minimal delay
-            }, 20); // Minimal delay
-        }, 20); // Minimal delay
-    }, 400); // Ultra fast fallback
+    // Show main content immediately
+    showMainContent();
 }
 
 function showMainContent() {
