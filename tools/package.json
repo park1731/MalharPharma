@@ -1,0 +1,11 @@
+{
+  "name": "malhar-site-tools",
+  "private": true,
+  "description": "Optional helper for regenerating the optimised photos in assets/img from the originals in images/. Not needed to run or deploy the site.",
+  "scripts": {
+    "images": "node build-images.cjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.0"
+  }
+}
