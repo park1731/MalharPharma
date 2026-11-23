@@ -29,10 +29,6 @@ All colours are defined once at the top of `assets/css/site.css`.
 | `images/` | Your original full-size photos. The site does not load these |
 | `tools/` | Optional helpers (see "Changing photos") |
 
-### Temporary files from the previous website
-
-`styles.css`, `script.js` and `config.js` in the top folder belong to the previous website. The new site does not use them. They are kept only because Hostinger's CDN was still serving a saved copy of the old home page, which needs them. Once the CDN cache has been cleared (hPanel → the website → CDN → clear or flush cache), these three files can be deleted.
-
 ## Seeing it on your computer
 
 Run this in the project folder, then open http://localhost:8000
@@ -43,9 +39,11 @@ python3 -m http.server 8000
 
 ## Putting it online
 
-Upload everything in this folder to the website's root folder (`public_html` on most hosts), replacing the old files. You can leave out `tools/`, `images/` and `README.md`; the site does not need them.
+The site is published from this repository. Hostinger is connected to it, so anything pushed to the `main` branch on GitHub is live at malharcare.in within a few seconds. There is no separate upload step, which also means `main` should only hold work that is ready to be seen.
 
-People who visited the old site will be moved to the new one automatically the next time they open it.
+After publishing, open the site and check it. Hostinger puts a CDN in front of the site, and it can keep showing a saved copy of a page. If you still see an older version, clear the CDN cache in Hostinger's hPanel (open the website, then CDN, then flush the cache).
+
+To publish somewhere else instead, upload everything in this folder to that host's root folder. You can leave out `tools/`, `images/` and `README.md`; the site does not need them.
 
 ## Changing things
 
