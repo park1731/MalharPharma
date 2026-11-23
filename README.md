@@ -29,6 +29,10 @@ All colours are defined once at the top of `assets/css/site.css`.
 | `images/` | Your original full-size photos. The site does not load these |
 | `tools/` | Optional helpers (see "Changing photos") |
 
+### Temporary files from the previous website
+
+`styles.css`, `script.js` and `config.js` in the top folder belong to the previous website. The new site does not use them. They are kept only because Hostinger's CDN was still serving a saved copy of the old home page, which needs them. Once the CDN cache has been cleared (hPanel → the website → CDN → clear or flush cache), these three files can be deleted.
+
 ## Seeing it on your computer
 
 Run this in the project folder, then open http://localhost:8000
